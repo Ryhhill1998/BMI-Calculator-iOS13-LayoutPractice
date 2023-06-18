@@ -33,8 +33,8 @@ class CalculateViewController: UIViewController {
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
-        let height = heightSlider.value
-        let weight = weightSlider.value
+        let height = round(heightSlider.value * 100) / 100
+        let weight = Float(Int(weightSlider.value))
         
         calculatorBrain.calculateBmi(height: height, weight: weight)
         
@@ -44,7 +44,7 @@ class CalculateViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultViewController
-            destinationVC.bmiValue = calculatorBrain.getBmi()
+            destinationVC.bmiValue = calculatorBrain.getBmiValue()
         }
     }
 }
