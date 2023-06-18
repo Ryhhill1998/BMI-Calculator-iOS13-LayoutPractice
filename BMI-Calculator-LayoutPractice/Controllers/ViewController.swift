@@ -36,6 +36,10 @@ class ViewController: UIViewController {
         let weight = Float(Int(weightSlider.value))
         let bmi = round(weight / pow(height, 2) * 10) / 10
         print(bmi)
+        
+        let secondVC = SecondViewController()
+        secondVC.bmi = "\(bmi)"
+        self.present(secondVC, animated: true)
     }
     
     func roundHeight(height: Float) -> Float {
