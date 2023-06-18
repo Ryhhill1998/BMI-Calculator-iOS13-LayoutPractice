@@ -29,7 +29,7 @@ struct CalculatorBrain {
             bmiColour = UIColor {_ in return #colorLiteral(red: 0.5568627451, green: 0.6745098039, blue: 0.3137254902, alpha: 1)}
         case 24.5..<29.5:
             bmiAdvice = "You are overweight"
-            bmiColour = UIColor {_ in return #colorLiteral(red: 1, green: 0.8509803922, blue: 0.2392156863, alpha: 1)}
+            bmiColour = UIColor {_ in return #colorLiteral(red: 0.9490196078, green: 0.8039215686, blue: 0.3607843137, alpha: 1)}
         case 29.5..<39.5:
             bmiAdvice = "You are obese"
             bmiColour = UIColor {_ in return #colorLiteral(red: 1, green: 0.5176470588, blue: 0, alpha: 1)}
@@ -46,7 +46,7 @@ struct CalculatorBrain {
     }
     
     func getBmiAdvice() -> String {
-        return bmi?.advice ?? ""
+        return bmi?.advice ?? "No advice"
     }
     
     func getBmiColour() -> UIColor {
