@@ -148,6 +148,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_background" translatesAutoresizingMaskIntoConstraints="NO" id="OwB-Gr-By2">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.29803921568627451" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ser-cU-ZTK">
                                 <rect key="frame" x="89" y="354.5" width="236" height="177.5"/>
@@ -209,6 +210,7 @@
                     </view>
                     <connections>
                         <outlet property="adviceLabel" destination="wL7-Mk-scd" id="fuh-Om-JFA"/>
+                        <outlet property="backgroundImageView" destination="OwB-Gr-By2" id="Ve1-Vh-hqy"/>
                         <outlet property="bmiLabel" destination="hWo-gc-8p7" id="28i-kO-Qah"/>
                     </connections>
                 </viewController>
