@@ -16,40 +16,35 @@ class CalculateViewController: UIViewController {
     @IBOutlet weak var heightSlider: UISlider!
     @IBOutlet weak var weightSlider: UISlider!
     
-    var bmi: Float = 0.0
+    var calculatorBrain = CalculatorBrain()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    
     @IBAction func sliderDragged(_ sender: UISlider) {
         let updatedValue = sender.value
         
         if sender == heightSlider {
-            heightValueLabel.text = "\(roundHeight(height: updatedValue))m"
+            heightValueLabel.text = "\(round(updatedValue * 100) / 100)m"
         } else {
             weightValueLabel.text = "\(Int(updatedValue))Kg"
         }
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
-        let height = roundHeight(height: heightSlider.value)
-        let weight = Float(Int(weightSlider.value))
+        let height = heightSlider.value
+        let weight = weightSlider.value
         
-        bmi = round(weight / pow(height, 2) * 10) / 10
+        calculatorBrain.calculateBmi(height: height, weight: weight)
         
         self.performSegue(withIdentifier: "goToResult", sender: self)
-    }
-    
-    func roundHeight(height: Float) -> Float {
-        return round(height * 100) / 100
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultViewController
-            destinationVC.bmiValue = bmi
+            destinationVC.bmiValue = calculatorBrain.getBmi()
         }
     }
 }
